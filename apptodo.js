@@ -4,7 +4,7 @@ angular.module('ContactAppTodo',[])
 
     self.contacts = [
       { title: 'Thunyaporn' },
-        { title: 'Chutiporn' },
+      { title: 'Chutiporn' },
     ]
 
     self.list = function (){
@@ -12,38 +12,43 @@ angular.module('ContactAppTodo',[])
     }
 
           self.add = function (contact){
-              self.contacts.push(contact)
-          }
-
-
-
+          self.contacts.push(contact)
+  }
 
   })
+
+  .controller('ListTextTitle', function ($scope, contactServiceTodo) {
+
+    $scope.newContacts = {
+
+      title: '',
+    };
+
+    $scope.contacts = contactServiceTodo.list()
+
+
+})
 
 
 
   .controller('AddTextTitle',function($scope,contactServiceTodo){
+    $scope.title = ' '
     $scope.save = function(){
       var contact = {
-
         title: $scope.title
-
       }
 
 
-      contact.title = $scope.title;
-
-if( contact.title  !== " "){
-  contactServiceTodo.add(contact);
-}
-
+    if( contact.title !== ' '  ||  contact.title !== NULL ){
+      contactServiceTodo.add(contact);
       resetFrom();
-    }
+      }
 
     function resetFrom() {
 
-      $scope.title=' ';
+      $scope.title= ' ';
 
     }
+  }
 
 });
