@@ -30,9 +30,8 @@ angular.module('ContactAppTodo',[])
 })
 
 
-
   .controller('AddTextTitle',function($scope,contactServiceTodo){
-    $scope.title = ' '
+
     $scope.save = function(){
       var contact = {
         title: $scope.title
