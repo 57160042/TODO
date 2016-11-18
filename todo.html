@@ -92,10 +92,10 @@ function follow()
             <br><br>
 
             <div class="form-group form-group-lg">
-                <center><input type="text" class="form-control" id="title" style="width:450px;" placeholder=" what need to be done? " ng-model="title" ><br/></center>
+                <center><input type="text" class="form-control" id="title" style="width:450px;" placeholder= "'what need to be done?'"  ng-model="title" ><br/></center>
             </div>
 
-               <center><button ng-click="save()" class="btn btn-default btn-lg">Add</button></center>
+               <center><button ng-click="save()" class="btn btn-danger" style="width:250px;height:50px;">Add</button></center>
 
           </form>
         </div>
@@ -103,11 +103,12 @@ function follow()
         <div class="container">
           <div ng-controller="ListTextTitle">
             <table  class="table table-hover">
+
               <thead>
               <tr>
-                <th>CheckBox</th>
-                <th>Title</th>
-                <th>Done</th>
+                <th><h2>CheckBox</h2></th>
+                <th><h2>Title</h2></th>
+                <th><h2>Done</h2></th>
 
               </tr>
               </thead>
@@ -115,12 +116,13 @@ function follow()
               <tbody>
               <tr ng-repeat="contact in contacts">
 
-                  <td>
+                  <td class="warning">
                       <input class="btn btn-default" type="checkbox" ng-model="contact.done" ng-true-value="'Complete'" ng-false-value="' '">
                   </td>
 
-                  <td>{{ contact.title }}</td>
-                  <td>{{ contact.done }}</td>
+                  <td class="info"><h5>{{ contact.title }}</h5></td>
+
+                  <b><td class="danger" style = "color:green"><h4>{{ contact.done }}</h4></td></b>
 
                 </tr>
               </tbody>
